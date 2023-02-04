@@ -3,8 +3,8 @@
         <header>
             <nav>
                 <router-link class="me-1" :to="{name: 'get.index'}">Get</router-link>
-                <router-link class="mx-1" :to="{name: 'registration'}">Registration</router-link>
-                <router-link class="mx-1" :to="{name: 'login'}">Login</router-link>
+                <router-link class="mx-1" :to="{name: 'user.registration'}">Registration</router-link>
+                <router-link class="mx-1" :to="{name: 'user.login'}">Login</router-link>
             </nav>
         </header>
         <main>
