@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\IndexController;
+use App\Http\Controllers\GetController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/get', IndexController::class)->middleware('auth:sanctum');
+Route::get('/get', GetController::class)->middleware('auth:sanctum');

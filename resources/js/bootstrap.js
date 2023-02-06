@@ -1,4 +1,5 @@
 import _ from 'lodash';
+
 window._ = _;
 
 import 'bootstrap';
@@ -10,9 +11,27 @@ import 'bootstrap';
  */
 
 import axios from 'axios';
+import router from "@/router";
+
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.interceptors.response.use({}, error => {
+    const status = error.response.status
+
+    if (status === 401 || status === 419) {
+        const token = localStorage.getItem('x_xsrf_token')
+
+        if (token) {
+            localStorage.removeItem('x_xsrf_token')
+
+        }
+        console.log(1)
+        router.push({name: 'user.login'})
+        console.log(2)
+    }
+})
+axios.defaults.withCredentials = true;
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
